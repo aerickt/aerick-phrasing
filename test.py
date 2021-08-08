@@ -219,100 +219,108 @@ ends = {
             "":""
 }
 
-def lookup(key):
-    assert len(key) <= LONGEST_KEY
+dict = {
+    '1': 'S',
+    '2': 'T',
+    '3': 'P',
+    '4': 'H',
+    '5': 'X',
+    '6': 'F',
+    '7': 'P',
+    '8': 'L',
+    '9': 'T',
+    '0': 'Y',
+    'E': 'Q',
+    'U': 'N'
+}
 
-    if key[0] == "WHAEUL": return "whale"
+stroke = 'SWRAOET'
 
-    dict = {
-        '1': 'S',
-        '2': 'T',
-        '3': 'P',
-        '4': 'H',
-        '5': 'X',
-        '6': 'F',
-        '7': 'P',
-        '8': 'L',
-        '9': 'T',
-        '0': 'Y',
-        'E': 'Q',
-        'U': 'N'
-    }
+if '#' in stroke or any(char.isdigit() for char in stroke):
+    for (i, j) in dict.items():
+        stroke = stroke.replace(i, j)
 
-    stroke = key[0]
+mk = ''
+mw = ''
+ek = ''
+ew = ''
 
-    if '#' in stroke or any(char.isdigit() for char in stroke):
-        for (i, j) in dict.items():
-            stroke = stroke.replace(i, j)
+sk = stroke
 
-    mk = ''
+midPtrn = ['A', 'O', 'E', 'U', 'X', 'Y', 'Q', 'N', 'F', '-', '*']
+
+for x in midPtrn:
+    sk = sk.split(x)[0]
+    if x in stroke and not x in '-*':
+        mk += x
+
+ek = ek + stroke.replace(sk, '').replace(mk, '').replace('-', '')
+
+wk = sk + mk
+
+if sk in starters:
+    sw = starters[sk]
+
+    #midList = []
+
+    #if mk != '':
+    #    while mk != '':
+    #        midLen = 0
+    #        for i in middles:
+    #            if i in mk and len(i) > midLen:
+    #                midLen = len(i)
+    #                base = i
+    #        midList.append(base)
+    #        mk = mk.replace(base, '')
+
+    #    for i in midList:
+    #        mw += ' ' + middles[i]
+
+    while mk != '':
+        for i in range(len(mk), 0, -1):
+            if mk[:i] in middles:
+                mw += ' ' + middles[mk[:i]]
+                mk = mk.replace(mk[:i], '')
+
+    " ".join(mw)
+
+elif wk in what:
+    sw = what[wk]
+    sk = wk
     mw = ''
-    ek = ''
-    ew = ''
+else:
+    raise KeyError
 
-    sk = stroke
+if ek in ["R", "RT", "*RT"]:
+    if ek == "R":
+        ew = are[sk] + " ❌"
+    elif ek == "RT":
+        ew = are[sk] + " not❌"
+    elif ek == "*RT":
+        ew = are[sk] + "n't❌"
+else: ew = ends[ek]
 
-    midPtrn = ['A', 'O', 'E', 'U', 'X', 'Y', 'Q', 'N', 'F', '-', '*']
+if sw in ['he', 'she', 'it', '', 'what he']:
+    mw += " "
+    if "do " in mw:
+        mw = mw.replace("do ", "does ")
+    elif "don't " in mw:
+        mw = mw.replace("don't ","doesn't ")
+    mw = mw[:-1]
 
-    for x in midPtrn:
-        sk = sk.split(x)[0]
-        if x in stroke and not x in '-*':
-            mk += x
+    if 'have' in ew: ew = ew.replace('have', 'has')
 
-    ek = ek + stroke.replace(sk, '').replace(mk, '').replace('-', '')
+    if not any(x in mw for x in ['does', 'did', 'can']) and not '❌' in ew and sk != 'STWR':
+        for i in [' to', ' the', ' about', ' that', ' like']:
+            lastWord = ""
+            if i in ew:
+                lastWord = i
+                ew = ew.split(i)[0]
+                break
+        ew += "s" + lastWord
 
-    wk = sk + mk
+stm = sw + mw
 
-    if sk in starters:
-        sw = starters[sk]
+ret = stm + " " + ew.replace('❌', '')
 
-        mkTMP = mk
-
-        while mkTMP != '':
-            for i in range(len(mkTMP), 0, -1):
-                if mkTMP[:i] in middles:
-                    mw += ' ' + middles[mkTMP[:i]]
-                    mkTMP = mkTMP.replace(mkTMP[:i], '')
-
-        " ".join(mw)
-
-    elif wk in what:
-        sw = what[wk]
-        sk = wk
-        mw = ''
-    else:
-        raise KeyError
-
-    if ek in ["R", "RT", "*RT"]:
-        if ek == "R":
-            ew = are[sk] + " ❌"
-        elif ek == "RT":
-            ew = are[sk] + " not❌"
-        elif ek == "*RT":
-            ew = are[sk] + "n't❌"
-    else: ew = ends[ek]
-
-    if sw in ['he', 'she', 'it', '', 'what he']:
-        mw += " "
-        if "do " in mw:
-            mw = mw.replace("do ", "does ")
-        elif "don't " in mw:
-            mw = mw.replace("don't ","doesn't ")
-        mw = mw[:-1]
-
-        if 'have' in ew: ew = ew.replace('have', 'has')
-
-        if not any(x in mw for x in ['does', 'did', 'can']) and not '❌' in ew and sk != 'STWR':
-            for i in [' to', ' the', ' about', ' that', ' like']:
-                lastWord = ""
-                if i in ew:
-                    lastWord = i
-                    ew = ew.split(i)[0]
-                    break
-            ew += "s" + lastWord
-
-    stm = sw + mw
-
-    ret = stm + " " + ew.replace('❌', '')
-
-    return " ".join(ret.split())
+print(" ".join(ret.split()))
