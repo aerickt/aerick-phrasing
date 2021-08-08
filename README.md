@@ -6,7 +6,7 @@ Heavily inspired by [JadeGG's own phrasing system](https://github.com/Jade-GG/pl
 
 This system allows you to write common phrases in one stroke, such as "I don't really even care about".
 
-However, the actual python dictionary has practically been rewritten to accommodate for features that the original does not have.
+However, the actual [python dictionary](https://pypi.org/project/plover-python-dictionary/) has practically been rewritten to accommodate for features that the original does not have.
 
 ## Changes With this System
 
