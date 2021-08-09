@@ -125,12 +125,12 @@ With number key:
 - `PBGD`: `thought`
 - `PBGTD`: `thought that`
 - `*PBGTD`: `thought the`
-- `PBLG": "find`
-- `PBLGT": "find that`
-- `*PBLGT": "find the`
-- `PBLGD": "found`
-- `PBLGTD": "found that`
-- `*PBLGTD": "found the`
+- `PBLG`: `find`
+- `PBLGT`: `find that`
+- `*PBLGT`: `find the`
+- `PBLGD`: `found`
+- `PBLGTD`: `found that`
+- `*PBLGTD`: `found the`
 - `PL`: `may`
 - `PLT`: `might`
 - `RB`: `shall`
