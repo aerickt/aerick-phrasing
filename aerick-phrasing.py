@@ -118,6 +118,12 @@ ends = {
             "*PT":"want the",
             "*PTD":"wanted the❌",
             "*P":"wanna❌",
+            "RPBL":"make",
+            "RPBLT":"make that",
+            "*RPBLT":"make the",
+            "RPBLD":"made❌",
+            "RPBLTD":"made that❌",
+            "*RPBLTD":"made the❌",
             "RPL":"remember",
             "RPLT":"remember that",
             "RPLTD":"remembered that❌",
@@ -129,8 +135,8 @@ ends = {
             "RBLD":"saw❌",
             "RBLTD":"saw that❌",
             "*RBLTD":"saw the❌",
-            "BG":"can",
-            "BGT":"can't",
+            "BG":"can❌",
+            "BGT":"cannot❌",
             "BGD":"could❌",
             "*BGD":"couldn't❌",
             "BL":"believe",
@@ -165,6 +171,18 @@ ends = {
             "PLT":"might❌",
             "RB":"shall❌",
             "RBD":"should❌",
+            "RBLG":"try",
+            "RBLGT":"try to",
+            "*RBLGT":"try the",
+            "RBLGD":"tried❌",
+            "RBLGTD":"tried to❌",
+            "*RBLGTD":"tried the❌",
+            "RPBLG":"look",
+            "RPBLGT":"look to",
+            "*RPBLGT":"look at",
+            "RPBLGD":"looked❌",
+            "RPBLGTD":"looked to❌",
+            "*RPBLGTD":"looked at❌",
             "RL":"recall",
             "RLD":"recalled❌",
             "RLZ":"realise",
@@ -187,7 +205,11 @@ ends = {
             "LTS":"felt❌",
             "LGTS":"felt like❌",
             "PBL":"mean",
-            "PBLT":"meant❌",
+            "PBLT":"mean that",
+            "*PBLT":"mean the",
+            "PBLD":"meant❌",
+            "PBLTD":"meant that❌",
+            "*PBLTD":"meant the❌",
             "BLG":"like",
             "BLGT":"like to",
             "*BLGT":"like the",
@@ -323,13 +345,16 @@ def lookup(key):
         if 'have' in ew: ew = ew.replace('have', 'has') #Special case for have/has
 
         if not any(x in mw for x in ['does', 'did', 'can']) and not '❌' in ew and sk != 'STWR' and ew != '': #Pluralise
-            for i in [' to', ' the', ' about', ' that', ' like']:
-                lastWord = ""
-                if i in ew:
-                    lastWord = i
-                    ew = ew.split(i)[0]
-                    break
-            ew += "s" + lastWord
+            if not 'try' in ew: #Special case for "try"
+                for i in [' to', ' the', ' about', ' that', ' like', ' at']:
+                    lastWord = ""
+                    if i in ew:
+                        lastWord = i
+                        ew = ew.split(i)[0]
+                        break
+                ew += "s" + lastWord
+            else:
+                ew = ew.replace('try', 'tries')
 
     stm = sw + mw
 

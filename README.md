@@ -10,15 +10,11 @@ However, the actual [python dictionary](https://pypi.org/project/plover-python-d
 
 ## Changes With this System
 
-### Grammatically incorrect phrases are less frequent
+### "doesn't" and "don't" use the same keys
 
-With the original system, there is space taken up by grammatically incorrect phrases. For example, "doesn't" and "don't" are separate middle words, and so stroking `KPWHOEPT` would result in "he don't want to".
+With the original system, `E` is used for "doesn't" while `OE` is used for "don't". This means that there is space taken up by grammatically incorrect phrases such as "he don't want to" (`KWHROEPT`).
 
-With this system, the middle word represented by `OE` changes depending on the pronoun. So while `KPWHOEPT` would output "it doesn't want to", `SWROEPT` would output "I don't want to" despite using the same vowel keys.
-
-When using no starter word, "doesn't" will be used. This is for phrases such as "Alice doesn't really need to" (`A*LS/STKPWHROEUPBTD`).
-
-The ending "has"/"have" (`-T`) works the same.
+With this system, the middle word represented by `OE` changes depending on the pronoun. So while `KPWHOEPT` would output "it doesn't want to", `SWROEPT` would result in "I don't want to" despite using the same vowel keys.
 
 ### Plurals are automatic
 
@@ -46,8 +42,14 @@ All of these changes have added quite a bit of space for new phrases. Currently,
 - `TWH`: `they`
 - `TWR`: `we`
 - `KPWH`: `it`
-- `STKPWHR`: ` `  (nothing)
-- `STWR`: ` `  (nothing, and don't plurarlise)
+- `STKPWHR`: ` ` (nothing)
+  - Plural form of phrases (e.g. `STKPWHRPT`: `wants to`)
+  - `STKPWHROE`: `doesn't`
+  - `#STKPWHROE`: `does`
+- `STWR`: ` ` (nothing)
+  - Singular form of phrases (e.g. `STWRPT`: `want to`)
+  - `STKPWHROE`: `don't`
+  - `#STKPWHROE`: `do`
 
 **Middle words**
 - `OE`: `don't` or `doesn't` depending on pronoun
@@ -80,11 +82,25 @@ With number key:
 - `*PT`: `want the`
 - `*PTD`: `wanted the`
 - `*P`: `wanna`
+- `RPBL`: `make`
+- `RPBLT`: `make that`
+- `*RPBLT`: `make the`
+- `RPBLD`: `made`
+- `RPBLTD`: `made that`
+- `*RPBLTD`: `made the`
 - `RPL`: `remember`
 - `RPLT`: `remember that`
 - `RPLTD`: `remembered that`
 - `*RPLT`: `remember the`
 - `*RPLTD`: `remembered the`
+- `RBL`: `see`
+- `RBLT`: `see that`
+- `*RBLT`: `see the`
+- `RBLD`: `saw`
+- `RBLTD`: `saw that`
+- `*RBLTD`: `saw the`
+- `BG`: `can`
+- `BGT`: `cannot`
 - `BGD`: `could`
 - `*BGD`: `couldn't`
 - `BL`: `believe`
@@ -96,9 +112,9 @@ With number key:
 - `D`: `had`
 - `TD": "had to`
 - `*TD": "had the`
-- `T`: `have`
-- `TS`: `have to`
-- `*TS`: `have the`
+- `T`: `have` or `has` (`T`, `TS`, and `*TS` all depend on the pronoun)
+- `TS`: `have to` or `has to`
+- `*TS`: `have the` or `has the`
 - `S`: `was`
 - `PLTS`: `must`
 - `L`: `will`
@@ -106,17 +122,35 @@ With number key:
 - `PBG`: `think`
 - `PBGT`: `think that`
 - `*PBGT`: `think the`
-- `PBLG`: `thought`
-- `PBLGT`: `thought that`
-- `*PBLGT`: `thought the`
+- `PBGD`: `thought`
+- `PBGTD`: `thought that`
+- `*PBGTD`: `thought the`
+- `PBLG": "find`
+- `PBLGT": "find that`
+- `*PBLGT": "find the`
+- `PBLGD": "found`
+- `PBLGTD": "found that`
+- `*PBLGTD": "found the`
 - `PL`: `may`
 - `PLT`: `might`
 - `RB`: `shall`
 - `RBD`: `should`
+- `RBLG`: `try`
+- `RBLGT`: `try to`
+- `*RBLGT`: `try the`
+- `RBLGD`: `tried`
+- `RBLGTD`: `tried to`
+- `*RBLGTD`: `tried the`
+- `RPBLG`: `look`
+- `RPBLGT`: `look to`
+- `*RPBLGT`: `look at`
+- `RPBLGD`: `looked`
+- `RPBLGTD`: `looked to`
+- `*RPBLGTD`: `looked at`
 - `RL`: `recall`
 - `RLD`: `recalled`
 - `RLZ`: `realise`
-- `RLZD`: `realised`
+- `RLDZ`: `realised`
 - `RP`: `were`
 - `RPBT`: `were not`
 - `*RPBT`: `weren't`
@@ -135,7 +169,11 @@ With number key:
 - `LTS`: `felt`
 - `LGTS`: `felt like`
 - `PBL`: `mean`
-- `PBLT`: `meant`
+- `PBLT`: `mean that`
+- `*PBLT`: `mean the`
+- `PBLD`: `meant`
+- `PBLTD`: `meant that`
+- `*PBLTD`: `meant the`
 - `BLG`: `like`
 - `BLGT`: `like to`
 - `*BLGT`: `like the`
@@ -157,7 +195,7 @@ With number key:
 - `RG`: `forget`
 - `RGT`: `forgot`
 - `RBS`: `wish`
-- `"RBTS`: `wish to`
+- `RBTS`: `wish to`
 - `*RBTS`: `wish the`
 - `RBSZ`: `wished`
 - `RBTSDZ`: `wished to`
@@ -181,9 +219,7 @@ With number key:
 - `PLGTD`: `imagined that`
 - `*PLGTD`: `imagined the`
 
-These ending words can also be combined with other things:
-
-**alternate starting words (with no middle words)**
+**Alternate starting words (no middle words)**
 - `WHA[E/U/EU]`: `what he/you/I`
 - `SKPW[E/U/EU]`: `do(es)n't he/you/I`
 - `STKO[E/U/EU]`: `do(es) he/you/I`
