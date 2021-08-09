@@ -123,6 +123,14 @@ ends = {
             "RPLTD":"remembered that❌",
             "*RPLT":"remember the",
             "*RPLTD":"remembered the❌",
+            "RBL":"see",
+            "RBLT":"see that",
+            "*RBLT":"see the",
+            "RBLD":"saw❌",
+            "RBLTD":"saw that❌",
+            "*RBLTD":"saw the❌",
+            "BG":"can",
+            "BGT":"can't",
             "BGD":"could❌",
             "*BGD":"couldn't❌",
             "BL":"believe",
@@ -304,7 +312,7 @@ def lookup(key):
             ew = are[sk] + "n't❌"
     else: ew = ends[ek]
 
-    if sw in ['he', 'she', 'it', '', 'what he']: #Special case for does/doesn't
+    if sw in ['he', 'she', 'it', '', 'what he'] and sk != 'STWR': #Special case for does/doesn't
         mw += " "
         if "do " in mw:
             mw = mw.replace("do ", "does ")
@@ -314,7 +322,7 @@ def lookup(key):
 
         if 'have' in ew: ew = ew.replace('have', 'has') #Special case for have/has
 
-        if not any(x in mw for x in ['does', 'did', 'can']) and not '❌' in ew and sk != 'STWR': #Pluralise
+        if not any(x in mw for x in ['does', 'did', 'can']) and not '❌' in ew and sk != 'STWR' and ew != '': #Pluralise
             for i in [' to', ' the', ' about', ' that', ' like']:
                 lastWord = ""
                 if i in ew:
