@@ -232,7 +232,7 @@ def lookup(key):
 
     if key[0] == "WHAEUL": return "whale"
 
-    dict = {
+    dict = { #Dictionary to convert the numbers
         '1': 'S',
         '2': 'T',
         '3': 'P',
@@ -249,49 +249,53 @@ def lookup(key):
 
     stroke = key[0]
 
-    if '#' in stroke or any(char.isdigit() for char in stroke):
+    if '#' in stroke or any(char.isdigit() for char in stroke): #Convert numbers
         for (i, j) in dict.items():
             stroke = stroke.replace(i, j)
 
-    mk = ''
-    mw = ''
-    ek = ''
-    ew = ''
+    sk = stroke #Start keys
+    sw = '' #Start words
+    mk = '' #Middle keys
+    mw = '' #Middle words
+    ek = '' #Ending keys
+    ew = '' #Ending words
 
-    sk = stroke
-
-    midPtrn = ['A', 'O', 'E', 'U', 'X', 'Y', 'Q', 'N', 'F', '-', '*']
+    midPtrn = ['A', 'O', 'E', 'U', 'X', 'Y', 'Q', 'N', 'F', '-', '*'] #Medials to split the stroke
 
     for x in midPtrn:
-        sk = sk.split(x)[0]
+        sk = sk.split(x)[0] #Split stroke at medials to determine start keys
         if x in stroke and not x in '-*':
-            mk += x
+            mk += x #Add the medial to the middle keys if it is in the stroke
 
-    ek = ek + stroke.replace(sk, '').replace(mk, '').replace('-', '')
+    ek = stroke.replace(sk, '').replace('-', '') #Define end keys (remove start keys from stroke)
+    for i in mk: #Remove middle keys
+        ek = ek.replace(i, '')
 
-    wk = sk + mk
+    mk = mk.replace('*', '') #Remove asterisk from middle key
+
+    wk = sk + mk #'What' key (for alternative starters)
 
     if sk in starters:
-        sw = starters[sk]
+        sw = starters[sk] #Assign start words according to starters dictionary
 
         mkTMP = mk
 
-        while mkTMP != '':
-            for i in range(len(mkTMP), 0, -1):
-                if mkTMP[:i] in middles:
+        while mkTMP != '':                      #Determine middle words by finding
+            for i in range(len(mkTMP), 0, -1):  #longest match according to the dictionary
+                if mkTMP[:i] in middles:        #and repeat through the remaining keys
                     mw += ' ' + middles[mkTMP[:i]]
                     mkTMP = mkTMP.replace(mkTMP[:i], '')
 
         " ".join(mw)
 
-    elif wk in what:
+    elif wk in what: #If alternative starters are used, no need to determine middle words
         sw = what[wk]
         sk = wk
         mw = ''
     else:
         raise KeyError
 
-    if ek in ["R", "RT", "*RT"]:
+    if ek in ["R", "RT", "*RT"]: #Special case for -R
         if ek == "R":
             ew = are[sk] + " ❌"
         elif ek == "RT":
@@ -300,7 +304,7 @@ def lookup(key):
             ew = are[sk] + "n't❌"
     else: ew = ends[ek]
 
-    if sw in ['he', 'she', 'it', '', 'what he']:
+    if sw in ['he', 'she', 'it', '', 'what he']: #Special case for does/doesn't
         mw += " "
         if "do " in mw:
             mw = mw.replace("do ", "does ")
@@ -308,9 +312,9 @@ def lookup(key):
             mw = mw.replace("don't ","doesn't ")
         mw = mw[:-1]
 
-        if 'have' in ew: ew = ew.replace('have', 'has')
+        if 'have' in ew: ew = ew.replace('have', 'has') #Special case for have/has
 
-        if not any(x in mw for x in ['does', 'did', 'can']) and not '❌' in ew and sk != 'STWR':
+        if not any(x in mw for x in ['does', 'did', 'can']) and not '❌' in ew and sk != 'STWR': #Pluralise
             for i in [' to', ' the', ' about', ' that', ' like']:
                 lastWord = ""
                 if i in ew:
