@@ -208,9 +208,9 @@ While there aren't many words that currently use this exception, `-S` is free to
 - `RPGTD`: `needed to`
 - `*RPGTD`: `needed the`
 - `LS`: `feel`
-- `LGS`: `feel like`
-- `LTS`: `felt`
-- `LGTS`: `felt like`
+- `LTS`: `feel like`
+- `LSZ`: `felt`
+- `LTSDZ`: `felt like`
 - `PBL`: `mean`
 - `PBLT`: `mean that`
 - `*PBLT`: `mean the`
@@ -243,8 +243,12 @@ While there aren't many words that currently use this exception, `-S` is free to
 - `RBSZ`: `wished`
 - `RBTSDZ`: `wished to`
 - `*RBTSDZ`: `wished the`
-- `PGT`: `expect`
-- `PGTD`: `expected`
+- `PGS`: `expect`
+- `PGTS`: `expect to`
+- `*PGTS`: `expect the`
+- `PGSZ`: `expected`
+- `PGTSDZ`: `expected to`
+- `*PGTSDZ`: `expected the`
 - `RPBG`: `ever`
 - `B`: `be`
 - `BT`: `be the`
