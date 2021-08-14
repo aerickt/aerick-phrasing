@@ -89,11 +89,11 @@ All of these changes have added quite a bit of space for new phrases. Currently,
 - `AOEUF`: `ever just`
 - `F`: `even`
 
-**Ending words**
+**Endings**
 
-All ending words comprise of a "root" word (`know`, `find`, `see`, etc) which `-T` can be added onto. What exactly this last word is depends on the ending word, but is usually `to` or `that`. Using the asterisk `*T` will result in other last words (usually `the`).
+All endings comprise of a "root" word (`know`, `find`, `see`, etc) and a final word represented by `-T`. What exactly this last word is depends on the root, but is usually `to` or `that` (e.g., `-PB` → `know` and `-PBT` → `know that`). Using the asterisk `*T` will result in other last words (usually `the`, e.g., `*PBT` → `know the`).
 
-To get the past tense of an ending word, `-D` is used. For example `-PB` → `know`, and `-PBD` → `knew`. This can also be used together with the `-T` (`-PBTD` → `knew that`).
+To get the past tense of the root word, `-D` is used. For example `-PB` → `know`, and `-PBD` → `knew`. This can also be used together with the `-T` (`-PBTD` → `knew that`).
 
 For root words that end in `-S` (e.g., `-RBS` → wish, `-RPLS` → matter) the pattern is different. `-T` is still used to get the final word (`-RBTS` → `wish to`) but since pressing `-D` would require a shift, `-Z` is used for past tense (`-RBSZ` → `wished`). Similarly, since pressing `-TZ` would require a shift, `-TSDZ` is used for past tense in combination with a final word (`-RBTSDZ` → `wished to`).
 
