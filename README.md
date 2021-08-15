@@ -22,7 +22,7 @@ With the original system, to write a phrase such as `she really cares about`, on
 
 Currently a `❌` in the entries of the endings dictionary will prevent it from automatically being pluralised.
 
-### The number key can be used in strokes
+### Number key used in middles
 
 Currently, I'm using it for more middle words, specifically it will output the positive forms of the "non-number keyed" medials. The dictionary recognises the `AOEU` keys as `XYQN` to differentiate between when the number key has been pressed for the vowels (this is only important if you intend to change the medials).
 
