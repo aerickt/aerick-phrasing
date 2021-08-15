@@ -171,6 +171,10 @@ While there aren't many words that currently use this exception, `-S` is free to
 - `PBLGTD`: `found that`
 - `*PBLGTD`: `found the`
 - `PL`: `may`
+- `PLS`: `seem`
+- `PLTS`: `seem to`
+- `PLSZ`: `seemed`
+- `PLTSDZ`: `seemed to`
 - `PLT`: `might`
 - `RB`: `shall`
 - `RBD`: `should`
@@ -181,10 +185,10 @@ While there aren't many words that currently use this exception, `-S` is free to
 - `RBLGTD`: `tried to`
 - `*RBLGTD`: `tried the`
 - `RPBLG`: `look`
-- `RPBLGT`: `look to`
+- `RPBLGT`: `look like`
 - `*RPBLGT`: `look at`
 - `RPBLGD`: `looked`
-- `RPBLGTD`: `looked to`
+- `RPBLGTD`: `looked like`
 - `*RPBLGTD`: `looked at`
 - `RL`: `recall`
 - `RLD`: `recalled`
@@ -237,6 +241,8 @@ While there aren't many words that currently use this exception, `-S` is free to
 - `PLD`: `mind`
 - `RG`: `forget`
 - `RGD`: `forgot`
+- `RGT`: `forget to`
+- `RGTD`: `forgot to`
 - `RBS`: `wish`
 - `RBTS`: `wish to`
 - `*RBTS`: `wish the`
