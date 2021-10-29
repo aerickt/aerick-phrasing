@@ -69,9 +69,9 @@ middles = {
             "Y":"can",
             "XYQ":"really do",
             "YQ":"do",
-            "XQ":"really just didn't",
-            "Q":"just didn't",
-            "N":"really",
+            "XQ":"just didn't",
+            "Q":"can't just",
+            "N":"just can't",
             "XYN":"really did",
             "XQN":"did really",
             "XYQN":"ever",
@@ -131,6 +131,7 @@ ends = {
             "RPBLTD":"made that❌",
             "*RPBLTD":"made the❌",
             "RPL":"remember",
+            "RPLD":"remembered❌",
             "RPLT":"remember that",
             "RPLTD":"remembered that❌",
             "*RPLT":"remember the",
@@ -166,13 +167,13 @@ ends = {
             "S":"was❌",
             "SZ":"was not❌",
             "SZ":"wasn't❌",
-            "PLTS":"must❌",
+            "PBLGS":"must❌",
             "L":"will❌",
             "LD":"would❌",
             "PBG":"think",
             "PBGT":"think that",
             "*PBGT":"think the",
-            "PBGD":"thought",
+            "PBGD":"thought❌",
             "PBGTD":"thought that❌",
             "*PBGTD":"thought the❌",
             "PBLG":"find",
@@ -184,8 +185,10 @@ ends = {
             "PL":"may❌",
             "PLS":"seem",
             "PLTS":"seem to",
+            "*PLTS":"seem like",
             "PLSZ":"seemed❌",
             "PLTSDZ":"seemed to❌",
+            "*PLTSDZ":"seemed like❌",
             "PLT":"might❌",
             "RB":"shall❌",
             "RBD":"should❌",
@@ -247,8 +250,10 @@ ends = {
             "RBG":"care",
             "RBGD":"cared❌",
             "RBGT":"care about",
-            "GT":"get",
-            "GTD":"got❌",
+            "G":"get",
+            "GD":"got❌",
+            "GT":"get to",
+            "GTD":"got to❌",
             "PLD":"mind❌",
             "RG":"forget",
             "RGD":"forgot❌",
@@ -370,7 +375,8 @@ def lookup(key):
             mw = mw.replace("don't ","doesn't ")
         mw = mw[:-1]
 
-        if 'have' in ew: ew = ew.replace('have', 'has') #Special case for have/has
+        if 'have' in ew and not "does" in mw and not "can't" in mw and not "did" in mw:
+            ew = ew.replace('have', 'has') #Special case for have/has
         if 'have' in mw: mw = mw.replace('have', 'has') #Special case for have/has
 
         if not any(x in mw for x in ['does', 'did', 'can']) and not '❌' in ew and sk != 'STWR' and ew != '': #Pluralise
