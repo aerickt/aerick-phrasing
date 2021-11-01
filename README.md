@@ -79,9 +79,9 @@ All of these changes have added quite a bit of space for new phrases. Currently,
 - `OE`: `do`
 - `OEU`: `do really`
 - `AE`: `really just didn't`
-- `E`: `just didn't`
-- `EU`: `just didn't really`
-- `U`: `really`
+- `E`: `can't just`
+- `EU`: ``
+- `U`: `just can't`
 - `AOU`: `really did`
 - `AU`: `did`
 - `AEU`: `did really`
