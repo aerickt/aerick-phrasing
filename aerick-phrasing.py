@@ -259,6 +259,8 @@ ends = {
             "RGD":"forgot❌",
             "RGT":"forget to",
             "RGTD":"forgot to❌",
+            "*RGT":"forget the",
+            "*RGTD":"forgot the❌",
             "RBS":"wish",
             "RBTS":"wish to",
             "*RBTS":"wish the",
