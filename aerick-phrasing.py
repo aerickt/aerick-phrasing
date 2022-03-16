@@ -166,7 +166,7 @@ ends = {
             "*TS":"have the❌",
             "S":"was❌",
             "SZ":"was not❌",
-            "SZ":"wasn't❌",
+            "*SZ":"wasn't❌",
             "PBLGS":"must❌",
             "L":"will❌",
             "LD":"would❌",
