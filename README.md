@@ -66,7 +66,7 @@ All of these changes have added quite a bit of space for new phrases. Currently,
 
 > NOTE: When using `A` and `U` with `O`, `OE`, and `E`, the word `really` can be either appended or prepended to the middle word (e.g., `AOE` → `don't really`, `AE` → `really just`).
 
-> NOTE: `E` can be added in for the word `even`. It is always at the end of the middle words (e.g., `OUF` → `can't really even`).
+> NOTE: `F` can be added in for the word `even`. It is always at the end of the middle words (e.g., `OUF` → `can't really even`).
 
 > Memorisation tip: as for `really didn't` and `didn't really`, the side with two keys represents `really` (I think of the word `didn't` as one syllable, and therefore gets one key while `really` - having two syllables - gets two).
 
