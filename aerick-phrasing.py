@@ -85,30 +85,66 @@ what = {
             "WHAE":"what he",
             "WHAU":"what you",
             "WHAEU":"what I",
+            "WHAEF":"what she",
+            "WHAUF":"what they",
+            "WHAEUF":"what we",
+            "WHAF": "what it",
 
             "SKPWE":"doesn't he",
             "SKPWU":"don't you",
             "SKPWEU":"don't I",
+            "SKPWEF":"doesn't she",
+            "SKPWUF":"don't they",
+            "SKPWEUF":"don't we",
+            "SKP-F":"doesn't it",
 
             "STKOE":"does he",
             "STKOU":"do you",
             "STKOEU":"do I",
+            "STKOEF":"does she",
+            "STKOUF":"do they",
+            "STKOEUF":"do we",
+            "STKOF":"does it",
 
             "STKPWOE":"did he",
             "STKPWOU":"did you",
             "STKPWOEU":"did I",
+            "STKPWOEF":"did she",
+            "STKPWOUf":"did they",
+            "STKPWOEUF":"did we",
+            "STKPWOF":"did it",
 
             "STHAE":"that he",
             "STHAU":"that you",
             "STHAEU":"that I",
+            "STHAEF":"that she",
+            "STHAUF":"that they",
+            "STHAEUF":"that we",
+            "STHAF":"that it",
 
             "STPAE":"if he",
             "STPAU":"if you",
             "STPAEU":"if I",
+            "STPAEF":"if she",
+            "STPAUF":"if they",
+            "STPAEUF":"if we",
+            "STPAF":"if it",
 
             "SWHE":"when he",
             "SWHU":"when you",
-            "SWHEU":"when I"
+            "SWHEU":"when I",
+            "SWHEF":"when she",
+            "SWHUF":"when they",
+            "SWHEUF":"when we",
+            "SWHF":"when it",
+
+            "KWHE":"has he",
+            "KWHU":"have you",
+            "KWHEU":"have I",
+            "KWHEF":"has she",
+            "KWHUF":"have they",
+            "KWHEUF":"have we",
+            "KWH-F":"has it"
 }
 
 ends = {
