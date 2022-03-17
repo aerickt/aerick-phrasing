@@ -155,7 +155,7 @@ While there aren't many words that currently use this exception, `-S` is free to
 - `S`: `was`
 - `SZ`: `was not`
 - `*SZ`: `wasn't`
-- `PLTS`: `must`
+- `PBLGS`: `must`
 - `L`: `will`
 - `LD`: `would`
 - `PBG`: `think`
