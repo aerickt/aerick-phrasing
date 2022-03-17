@@ -176,6 +176,9 @@ While there aren't many words that currently use this exception, `-S` is free to
 - `PLSZ`: `seemed`
 - `PLTSDZ`: `seemed to`
 - `PLT`: `might`
+- `-R`: `is`,`am`,`are` (depends on pronoun)
+- `-RT`: `is not`,`am not`,`are not` (depends on pronoun)
+- `*RT`: `isn't`,`am the`,`aren't` (depends on pronoun)
 - `RB`: `shall`
 - `RBD`: `should`
 - `RBLG`: `try`
